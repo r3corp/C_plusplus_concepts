@@ -1,6 +1,7 @@
 #include <iostream>
 
-int main() {
+int maine()
+ {
 
     //Const concepts
     int inConstantVariable = 3;
