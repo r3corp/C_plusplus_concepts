@@ -1,28 +1,6 @@
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <fstream>
-#include <memory>
-#include <vector>
-#include <map>
+#include "heritage.hpp"
 
 //keep track of allocations
-
-void* operator new(size_t size){
-  std::cout << "allocating: [" << size << "] bytes." << std::endl;
-  return malloc(size);
-}
-
-void operator delete(void* object, size_t size){
-  std::cout << "deleting: [" << size << "] bytes." << std::endl;
-  free(object);
-}
-
-void operator delete(void* object) noexcept{
-  std::cout << "deleting: [" << sizeof(object) << "] bytes." << std::endl;
-  free(object);
-}
-
 
 
 class TestClass {
@@ -60,7 +38,7 @@ class TestHeritageClass : public TestClass{
 
 
 
-int testHeritage() {
+void testHeritage() {
   {
     
     //created on heap

@@ -1,6 +1,25 @@
 #include <iostream>
-#include <heritage.cpp>
-#inlcude <fibonacci.cpp>
+#include "heritage.hpp"
+#include "fibonacci.hpp"
+
+
+
+void* operator new(size_t size){
+  //std::cout << "allocating: [" << size << "] bytes." << std::endl;
+  return malloc(size);
+}
+
+void operator delete(void* object, size_t size){
+  //std::cout << "deleting: [" << size << "] bytes." << std::endl;
+  free(object);
+}
+
+void operator delete(void* object) noexcept{
+  //std::cout << "deleting: [" << sizeof(object) << "] bytes." << std::endl;
+  free(object);
+}
+
+
 
 int main()
  {
@@ -23,13 +42,14 @@ int main()
 
     //tenary operations
     int ternaryInt = 0;
-    ternaryInt > 3 ? printf("Print if true") : printf("Print if false");
-
+    ternaryInt > 3 ? std::cout << "Print if true" : std::cout << "Print if false";
+    std::cout << std::endl;
     //equal to
     if (ternaryInt > 3)
         printf("Print if true");
     else
         printf("Print if false");
+    std::cout << std::endl;
 
 
     return 0;
