@@ -58,26 +58,11 @@ class TestHeritageClass : public TestClass{
     }
 };
 
-int fibonacci(int number, std::shared_ptr<std::map<int,int>> memo =  std::make_shared<std::map<int,int>>()){
-  std::cout << "MEMO:[" << sizeof(*memo) + sizeof(memo) << "]" << std::endl;
-  std::cout << "number:[" << sizeof(number) << "]" << std::endl;
-  if ( ( number == 2 ) || ( number == 1 ) )
-    return 1;
-  auto item = memo->find(number);
-  if (item != memo->cend())
-    return item->second;
-  memo->emplace(number, fibonacci(number-1, memo) + fibonacci(number-2, memo) );
-  std::cout << "memosize:[" << memo->size() << "]" << std::endl;
-  return memo->at(number);
-  
-}
 
-int main() {
-  //std::cout << "Hello World!\n";
+
+int testHeritage() {
   {
     
-    std::cout << fibonacci(5) << std::endl;//701408733
-/*
     //created on heap
     std::unique_ptr<TestClass> testInstance = std::make_unique<TestHeritageClass>(); //child class created and accessed by the top clas
     std::cout << "Begin Moving" << std::endl;
@@ -90,6 +75,5 @@ int main() {
     std::shared_ptr<TestClass> testCopySharedInstance = testSharedInstance;
     testSharedInstance->setLocalName("Unique");
     std::cout << "Destroing" << std::endl;
-*/
   }
 }

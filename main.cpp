@@ -1,7 +1,12 @@
 #include <iostream>
+#include <heritage.cpp>
+#inlcude <fibonacci.cpp>
 
-int maine()
+int main()
  {
+
+    testHeritage();
+    testFibonacci();
 
     //Const concepts
     int inConstantVariable = 3;
