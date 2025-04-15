@@ -1,6 +1,19 @@
 #include "fibonacci.hpp"
 
-int fibonacci(int number, std::shared_ptr<std::map<int,int>> memo =  std::make_shared<std::map<int,int>>()){
+long long fibonacciddd(long long number, std::map<int,long long> &memo){
+  if (number <= 0 )
+    return 0;
+  if ( ( number == 2 ) || ( number == 1 ) )
+    return 1;
+  auto item = memo.find(number);
+  if (item != memo.end())
+    return item->second;
+  //memo.emplace(number, fibonacciddd(number-1, memo) + fibonacciddd(number-2, memo) );
+  memo[number] = fibonacciddd(number - 1, memo) + fibonacciddd(number - 2, memo);
+  return memo[number];
+  
+}
+long long fibonacci(int number, std::shared_ptr<std::map<int,long long>> memo =  std::make_shared<std::map<int,long long>>()){
   if ( ( number == 2 ) || ( number == 1 ) )
     return 1;
   auto item = memo->find(number);
@@ -11,8 +24,12 @@ int fibonacci(int number, std::shared_ptr<std::map<int,int>> memo =  std::make_s
   
 }
 
-void testFibonacci()
+int main()
 {
+    std::map<int,long long> amemo;
   
     std::cout << fibonacci(55) << std::endl;//701408733
+    std::cout << fibonacciddd(55, amemo) << std::endl;//701408733
+
+    return 0;
 }
