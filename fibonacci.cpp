@@ -28,8 +28,8 @@ int main()
 {
     std::map<int,long long> amemo;
   
-    std::cout << fibonacci(55) << std::endl;//701408733
-    std::cout << fibonacciddd(55, amemo) << std::endl;//701408733
+    std::cout << fibonacci(55) << std::endl;//139583862445
+    std::cout << fibonacciddd(55, amemo) << std::endl;//139583862445
 
     return 0;
 }
