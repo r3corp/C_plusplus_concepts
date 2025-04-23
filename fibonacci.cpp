@@ -1,13 +1,16 @@
 #include "fibonacci.hpp"
 
+
 long long fibonacciddd(long long number, std::map<int,long long> &memo){
   if (number <= 0 )
     return 0;
   if ( ( number == 2 ) || ( number == 1 ) )
     return 1;
   auto item = memo.find(number);
-  if (item != memo.end())
+  if (item != memo.end()){
+    std::cout << item->second << " found in map" << std::endl;
     return item->second;
+  }
   //memo.emplace(number, fibonacciddd(number-1, memo) + fibonacciddd(number-2, memo) );
   memo[number] = fibonacciddd(number - 1, memo) + fibonacciddd(number - 2, memo);
   return memo[number];
