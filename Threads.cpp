@@ -52,6 +52,17 @@ void run_on_all_cores() {
   }
 }
 int main() {
+
+  double a = 0.0;
+
+  for (int i = 0; i < 1000; ++i) {
+    a += 0.01f;
+    std::cout << "a: " << a << std::endl;
+  }
+
+
+
+  return 0;
   test_tbb();
 
   std::thread thread_example([] {
